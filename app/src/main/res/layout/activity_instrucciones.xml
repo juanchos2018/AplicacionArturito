@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@drawable/bg_color2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.InstruccionesActivity">
+
+
+    <TextView
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="Instrcucuiones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        android:layout_height="450dp">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+           <TextView
+               android:text="Para resolver el examen Cumanin se le recomienda que
+el niño resuelva las preguntas que indican las categorías
+habilitadas y que lo haga con honestidad ya que de ello
+depende su diagnostico
+"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+
+           </TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="No resulva el examen por el niño ya que eso solo perjudicaría
+el resultado del examen
+
+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Antes de  dar clic siguiente deberá entregar el equipo móvil al menor para que resuelva el examen.Usted puede actuar como moderador.
+
+
+"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:layout_gravity="center"
+        android:id="@+id/btnsiguiente"
+        android:text="siguiente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </Button>
+
+</LinearLayout>

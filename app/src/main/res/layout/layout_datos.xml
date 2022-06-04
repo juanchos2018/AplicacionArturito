@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_color2"
+    android:gravity="center_horizontal"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="Ingrese datos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="25dp"
+        android:layout_width="match_parent"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp"
+        android:layout_height="500dp">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <EditText
+                android:hint="Nombre de contacto"
+                android:padding="10dp"
+                android:background="@drawable/borde_uno"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+            </EditText>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:hint="Nro de celular"
+                android:padding="10dp"
+                android:background="@drawable/borde_uno"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+            </EditText>
+
+            <EditText
+                android:layout_marginTop="20dp"
+                android:hint="Dni"
+                android:padding="10dp"
+                android:background="@drawable/borde_uno"
+                android:layout_width="match_parent"
+                android:layout_height="40dp">
+            </EditText>
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

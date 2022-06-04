@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.PerfilFragment">
+
+
+
+    <androidx.cardview.widget.CardView
+        app:cardElevation="10dp"
+        app:cardCornerRadius="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="Soy psicóloga y psicoterapeuta interesada en el trabajo con niños, adolescentes y padres de familia. Trabajo bajo un enfoque cognitivo conductual y brindo servicios de terapia individual, consejería familiar y talleres para padres y niños/adolescentes."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="Formación:
+                    Licenciada en Psicología - Universidad de Lima
+                    - Formación en psicoterapia cognitivo conductual en niños y adolescentes - PROMOTEC
+                    - Diplomado en terapia sistémica familiar - Centro Peruano de Terapia Familiar y de Pareja
+                    - Neurodiversidad - CEREBRUM
+                    "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+
+            <TextView
+                android:text="Hora de atencion"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </TextView>
+            <TextView
+                android:text="Días: Lunes , Jueves y Sábado"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</LinearLayout>

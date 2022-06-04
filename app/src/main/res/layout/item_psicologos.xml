@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:layout_marginLeft="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="5dp"
+    android:layout_marginRight="10dp"
+    app:cardCornerRadius="20dp"
+    >
+
+    <LinearLayout
+        android:background="@drawable/bg_color_toolbar"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <com.github.siyamed.shapeimageview.CircularImageView
+                android:id="@+id/photopsicologo"
+                android:layout_width="70dp"
+                android:layout_height="10dp"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/default_profile_image"
+                app:siBorderColor="@color/teal_200"
+                app:siBorderWidth="2dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/nombrepsicologo"
+                android:text="Psicologo Nina Maria "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <Button
+                    android:id="@+id/btnver"
+                    android:text="Ver"
+                    android:textSize="13sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </Button>
+                <Button
+                    android:id="@+id/btnconsultar"
+                    android:layout_gravity="right"
+                    android:text="Consultar"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="11dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </Button>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
+<!--<androidx.constraintlayout.widget.ConstraintLayout
+xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent">-->
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
