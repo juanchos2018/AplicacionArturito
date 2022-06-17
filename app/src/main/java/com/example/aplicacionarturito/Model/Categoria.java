@@ -5,7 +5,6 @@ public class Categoria {
     String  id;
     String nombre;
     String photo;
-
     String tipo;
 
     public  Categoria(){

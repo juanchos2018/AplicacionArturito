@@ -2,38 +2,55 @@ package com.example.aplicacionarturito.Model;
 
 public class Horas {
 
-    String psicolog_id;
-    String horaincio;
-    String horafin;
-    String estado;
-    String fecha;
-
+    private String  id;
+    private Integer index;
+    private String  fecha_id;
+    private String  hora_inicio;
+    private String  hora_fin;
+    private String  estado;
 
     public  Horas(){
 
     }
-    public String getPsicolog_id() {
-        return psicolog_id;
+
+    public String getId() {
+        return id;
     }
 
-    public void setPsicolog_id(String psicolog_id) {
-        this.psicolog_id = psicolog_id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getHoraincio() {
-        return horaincio;
+    public Integer getIndex() {
+        return index;
     }
 
-    public void setHoraincio(String horaincio) {
-        this.horaincio = horaincio;
+    public void setIndex(Integer index) {
+        this.index = index;
     }
 
-    public String getHorafin() {
-        return horafin;
+    public String getFecha_id() {
+        return fecha_id;
     }
 
-    public void setHorafin(String horafin) {
-        this.horafin = horafin;
+    public void setFecha_id(String fecha_id) {
+        this.fecha_id = fecha_id;
+    }
+
+    public String getHora_inicio() {
+        return hora_inicio;
+    }
+
+    public void setHora_inicio(String hora_inicio) {
+        this.hora_inicio = hora_inicio;
+    }
+
+    public String getHora_fin() {
+        return hora_fin;
+    }
+
+    public void setHora_fin(String hora_fin) {
+        this.hora_fin = hora_fin;
     }
 
     public String getEstado() {
@@ -42,13 +59,5 @@ public class Horas {
 
     public void setEstado(String estado) {
         this.estado = estado;
-    }
-
-    public String getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
     }
 }

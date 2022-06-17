@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable-v24/ic_punto.xml" value="0.337" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable/bg_color.xml" value="0.2895" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable/bg_color2.xml" value="0.2895" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable/bg_color_toolbar.xml" value="0.2895" />
@@ -10,6 +11,7 @@
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable/borde_uno.xml" value="0.2895" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable/button_menu_ext.xml" value="0.2895" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/drawable/toggle_widget_background.xml" value="0.2895" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/absent_view.xml" value="0.2598958333333333" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_bienvenida.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_calendario.xml" value="0.25" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_categoria.xml" value="0.36666666666666664" />
@@ -18,7 +20,7 @@
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_horario.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_instrucciones.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_lectura.xml" value="0.36666666666666664" />
-        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_login.xml" value="0.25" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_principal.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_psicologo_view.xml" value="0.33" />
@@ -26,12 +28,18 @@
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_solicitar.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_splash.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/activity_view_pager.xml" value="0.36666666666666664" />
-        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/curre_view.xml" value="0.2598958333333333" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/default_calentar.xml" value="0.2598958333333333" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/dialogo_confirmar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_cuestionario.xml" value="0.27291666666666664" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_lectura.xml" value="0.2598958333333333" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_login.xml" value="0.22" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_perfil.xml" value="0.35260416666666666" />
-        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_register.xml" value="0.36685773840541946" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_register.xml" value="0.67" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/fragment_resenas.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/item_categorias.xml" value="0.36666666666666664" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/item_familiar.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/item_horarios.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/item_horas.xml" value="0.33" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/item_psicologos.xml" value="0.36666666666666664" />
@@ -39,6 +47,7 @@
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/layout_datos.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/layout_registrar.xml" value="0.36666666666666664" />
         <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/layout_solicitar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Trabajo/chino/AplicacionArturito/app/src/main/res/layout/present_view.xml" value="0.2598958333333333" />
       </map>
     </option>
   </component>

@@ -31,5 +31,7 @@
     <color name="color7">#01DF3A</color>
     <color name="color8">#E7E7EA</color>
     <color name="red">#ED1717</color>
+    <color name="bgVerde">#08B34F</color>
 
+    <color name="bgAzul">#503AD7</color>
 </resources>

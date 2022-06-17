@@ -4,10 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:layout_marginLeft="10dp"
+    android:layout_marginLeft="5dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginBottom="5dp"
-    android:layout_marginRight="10dp"
+    android:layout_marginRight="5dp"
     app:cardCornerRadius="20dp"
     >
 
@@ -19,10 +19,12 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+           android:layout_marginTop="10dp"
             android:orientation="vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
             <com.github.siyamed.shapeimageview.CircularImageView
+                android:layout_gravity="center"
                 android:id="@+id/photopsicologo"
                 android:layout_width="70dp"
                 android:layout_height="10dp"
@@ -52,7 +54,7 @@
                 <Button
                     android:id="@+id/btnver"
                     android:text="Ver"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                 </Button>
@@ -60,7 +62,7 @@
                     android:id="@+id/btnconsultar"
                     android:layout_gravity="right"
                     android:text="Consultar"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:layout_marginLeft="11dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">

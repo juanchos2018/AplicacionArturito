@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.aplicacionarturito.Model.Paciente;
 import com.example.aplicacionarturito.R;
 
 public class ViewPagerActivity extends AppCompatActivity {
@@ -116,20 +117,42 @@ public class ViewPagerActivity extends AppCompatActivity {
 
 
     private void launchHomeScreen() {
-//        Usuario usu = new Usuario();
-//        EditText etsexo=findViewById(R.id.sexo);
-//        EditText etnombre=findViewById(R.id.nombre);
-//        String nombre =etnombre.getText().toString();
-//        usu.setNombre(nombre);
-//        Toast.makeText(Intro.this, nombre, Toast.LENGTH_SHORT).show();
-//
-//        String sexo =etsexo.getText().toString();
-//        usu.setSexo(sexo);
-//
-//        Log.e("nombre",usu.getNombre());
-//        Log.e("sexo",usu.getSexo());
+        Paciente paciente = new Paciente();
 
-        // still pages are left
+        EditText tvnombrepaciente=findViewById(R.id.tvnombrepaciente);
+        EditText tvapellidopaciente=findViewById(R.id.tvapellidopaciente);
+        EditText tvedadpacinte=findViewById(R.id.tvedadpacinte);
+        EditText tvfechapaciente=findViewById(R.id.tvfechapaciente);
+        EditText tvlnacimientopaciente=findViewById(R.id.tvlnacimientopaciente);
+        EditText tvgradopaciente=findViewById(R.id.tvgradopaciente);
+
+        EditText tvcontacto=findViewById(R.id.tvcontacto);
+        EditText tvcelular=findViewById(R.id.tvcelular);
+        EditText tvdni=findViewById(R.id.tvdni);
+
+        String nombrePaciente=tvnombrepaciente.getText().toString();
+        String apellidopaciente=tvapellidopaciente.getText().toString();
+        String edadpaciente=tvedadpacinte.getText().toString();
+        String fechapaciente=tvfechapaciente.getText().toString();
+        String naicmientopaciente=tvlnacimientopaciente.getText().toString();
+        String gradopaciente=tvgradopaciente.getText().toString();
+
+        String contacto=tvcontacto.getText().toString();
+        String celuar=tvcelular.getText().toString();
+        String dni=tvdni.getText().toString();
+
+
+        paciente.setNombre(nombrePaciente);
+        paciente.setApellidos(apellidopaciente);
+        paciente.setEdad(edadpaciente);
+        paciente.setFecha_nacimiento(fechapaciente);
+        paciente.setLugar_nacimiento(naicmientopaciente);
+        paciente.setGrado_institucion(gradopaciente);
+
+        paciente.setContacto(contacto);
+        paciente.setCelular(celuar);
+        paciente.setDni(dni);
+
         btnNext.setText(getString(R.string.next));
 
         SharedPreferences sharedPreferences = getSharedPreferences("PREFS", MODE_PRIVATE);
@@ -138,8 +161,14 @@ public class ViewPagerActivity extends AppCompatActivity {
         editor.putInt("INTRO", 1);
         editor.apply();
 
-        startActivity(new Intent(this, PsicologosActivity.class));
+
+
+        Intent intent = new Intent(this, PsicologosActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("paciente",paciente);
+        intent.putExtras(bundle);
         finish();
+        startActivity(intent);
     }
 
 

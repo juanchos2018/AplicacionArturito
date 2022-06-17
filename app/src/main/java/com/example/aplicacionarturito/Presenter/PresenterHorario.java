@@ -39,10 +39,8 @@ public class PresenterHorario {
                     Horas model=item.getValue(Horas.class);
                     lista.add(model);
                 }
-
                 adapter= new AdapterHoras(lista);
                 recyclerView.setAdapter(adapter);
-
             }
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {

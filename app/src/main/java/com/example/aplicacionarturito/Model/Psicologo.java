@@ -8,6 +8,7 @@ public class Psicologo {
     String photo;
     String info;
     String descripcion;
+    String formacion;
 
 
 
@@ -63,5 +64,12 @@ public class Psicologo {
         this.descripcion = descripcion;
     }
 
+    public String getFormacion() {
+        return formacion;
+    }
+
+    public void setFormacion(String formacion) {
+        this.formacion = formacion;
+    }
 
 }

@@ -126,7 +126,7 @@ public class PresenterLogin {
         progressDialog = new ProgressDialog(mContext);
         progressDialog.setMessage("cargando");
         progressDialog.show();
-        Toast.makeText(mContext, "login", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(mContext, "login", Toast.LENGTH_SHORT).show();
         mAuth.signInWithEmailAndPassword(correo,clave).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -140,13 +140,11 @@ public class PresenterLogin {
                 }
                 else{
                     progressDialog.dismiss();
-                    Toast.makeText(mContext, "Verifique su Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "verifique sus datos", Toast.LENGTH_SHORT).show();
                 }
                 progressDialog.dismiss();
             }
         });
-
-
     }
     private void checkVerifiedEmail() {
         user = mAuth.getCurrentUser();

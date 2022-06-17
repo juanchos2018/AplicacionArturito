@@ -5,22 +5,15 @@
     android:layout_margin="20dp"
     app:cardCornerRadius="20dp"
     app:cardElevation="10dp"
-
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="wrap_content">
-
-
     <LinearLayout
         android:orientation="horizontal"
         android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
-
         <LinearLayout
-
-
             android:layout_width="wrap_content"
             android:layout_height="match_parent">
             <com.github.siyamed.shapeimageview.CircularImageView
@@ -29,7 +22,6 @@
                 android:layout_height="60dp"
                 android:src="@drawable/default_profile_image"
                 app:siBorderWidth="2dp"
-
                 app:siBorderColor="@color/teal_200"/>
         </LinearLayout>
         <LinearLayout
@@ -42,7 +34,6 @@
                 android:text="Dia  Lunes 07 de jnunio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
             </TextView>
             <TextView
                 android:text="Hay disponibilidad"
@@ -54,9 +45,7 @@
                 android:text="Verficar Horario"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
             </Button>
-
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

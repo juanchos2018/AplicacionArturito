@@ -54,6 +54,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void logOutUser() {
+        //boton salir
         mAuth = FirebaseAuth.getInstance();
         mAuth.signOut();
         Intent loginIntent =  new Intent(PrincipalActivity.this, LoginActivity.class);

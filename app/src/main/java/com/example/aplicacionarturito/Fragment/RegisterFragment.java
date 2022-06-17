@@ -64,7 +64,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
-//tvnonbre,tvapellido,tvcorreo,tvclave;
+
 
         tvnonbre=(EditText) view.findViewById(R.id.tvnonbre);
         tvapellido=(EditText) view.findViewById(R.id.tvapellido);
@@ -91,7 +91,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                 String clave2=tvclave2.getText().toString();
 
                 if (clave.equals(clave2))
-                {
+                {   //regitstrear usuarui
                     presenterLogin.registerUser(nombre,apellido,correo,clave);
                    // presenterLogin.Register();
                 }else{
