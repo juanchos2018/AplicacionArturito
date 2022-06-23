@@ -27,6 +27,7 @@ public class PsicologosActivity extends AppCompatActivity implements InterfacePs
     private DatabaseReference reference;
 
 
+    String paciente_id;
     Paciente paciente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +36,16 @@ public class PsicologosActivity extends AppCompatActivity implements InterfacePs
 
         reference= FirebaseDatabase.getInstance().getReference();
         presenter= new PresenterPsicologo(this,reference,this);
-        paciente= (Paciente) getIntent().getSerializableExtra("paciente");
+        //paciente= (Paciente) getIntent().getSerializableExtra("paciente");
+        paciente_id= getIntent().getStringExtra("id");
 
-        ListaPsicologos(paciente);
+        ListaPsicologos(paciente_id);
     }
 
-    private  void  ListaPsicologos(Paciente paciente){
+    private  void  ListaPsicologos( String paciente_id){
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recyclerpsicologos);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        presenter.cargarRecycler(recyclerView,paciente);
+        presenter.cargarRecycler(recyclerView,paciente_id);
 
     }
 

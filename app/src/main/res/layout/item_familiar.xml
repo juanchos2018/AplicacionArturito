@@ -41,7 +41,7 @@
             </TextView>
 
             <TextView
-                android:id="@+id/tvnombre"
+                android:id="@+id/tvnombreFa"
                 android:text="Nombre"
                 android:textStyle="bold"
                 android:layout_marginBottom="10dp"
@@ -50,17 +50,25 @@
             </TextView>
             <LinearLayout
                 android:layout_gravity="right"
-                android:orientation="vertical"
+                android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-
+                <Button
+                    android:layout_gravity="right"
+                    android:id="@+id/btncita"
+                    android:text="Cita"
+                    android:layout_marginLeft="2dp"
+                    android:layout_width="wrap_content"
+                    android:textSize="12sp"
+                    android:background="@drawable/borde_uno"
+                    android:layout_height="35dp">
+                </Button>
                 <Button
                     android:layout_gravity="right"
                     android:id="@+id/btneditar"
                     android:text="editar"
                     android:layout_marginLeft="2dp"
                     android:layout_width="wrap_content"
-
                     android:textSize="12sp"
                     android:background="@drawable/borde_uno"
                     android:layout_height="35dp">

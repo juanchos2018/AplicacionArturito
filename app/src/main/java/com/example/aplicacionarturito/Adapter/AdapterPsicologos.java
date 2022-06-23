@@ -23,11 +23,12 @@ import java.util.ArrayList;
 public class AdapterPsicologos  extends RecyclerView.Adapter<AdapterPsicologos.ViewHolderDatos> implements View.OnClickListener{
 
     ArrayList<Psicologo> listaPsicologos;
-    Paciente paciente;
 
-    public AdapterPsicologos(ArrayList<Psicologo> listaPsicologos, Paciente paciente) {
+    String paciente_id;
+    public AdapterPsicologos(ArrayList<Psicologo> listaPsicologos, String paciente_id) {
         this.listaPsicologos = listaPsicologos;
-        this.paciente=paciente;
+
+        this.paciente_id=paciente_id;
     }
 
 
@@ -61,9 +62,8 @@ public class AdapterPsicologos  extends RecyclerView.Adapter<AdapterPsicologos.V
         if (holder instanceof ViewHolderDatos){
             final ViewHolderDatos datgolder =(ViewHolderDatos)holder;
            // datgolder.nombrepsicologo.setText(simpleDateFormat.format(listaCitas.get(position).getFecha()));
-            datgolder.nombrepsicologo.setText(listaPsicologos.get(position).getNombre()+" "+listaPsicologos.get(position).getApellido());
+            datgolder.nombrepsicologo.setText(listaPsicologos.get(position).getNombres()+" "+listaPsicologos.get(position).getApellido());
             datgolder.id=listaPsicologos.get(position).getId();
-
 
             datgolder.btnver.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -71,7 +71,7 @@ public class AdapterPsicologos  extends RecyclerView.Adapter<AdapterPsicologos.V
                     Intent intent= new Intent(datgolder.btnver.getContext(), PsicologoViewActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("id", datgolder.id);
-                    bundle.putSerializable("paciente",paciente);
+                    bundle.putString("paciente_id", paciente_id);
                     intent.putExtras(bundle);
                     datgolder.btnver.getContext().startActivity(intent);
                 }
@@ -83,7 +83,8 @@ public class AdapterPsicologos  extends RecyclerView.Adapter<AdapterPsicologos.V
                     Intent intent= new Intent(datgolder.btnconsultar.getContext(), CalendarioActivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("id", datgolder.id);
-                    bundle.putSerializable("paciente",paciente);
+                    bundle.putString("paciente_id", paciente_id);
+
                     intent.putExtras(bundle);
                     datgolder.btnconsultar.getContext().startActivity(intent);
                 }

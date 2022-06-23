@@ -1,7 +1,9 @@
 package com.example.aplicacionarturito.Interface;
 
+import com.example.aplicacionarturito.Model.Paciente;
+
 import java.util.List;
 
 public interface InterfacePaciente {
-    void onCallbackFechas2(List<Integer> fechas);
+    void onCallback(Paciente value);
 }

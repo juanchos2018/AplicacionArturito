@@ -12,6 +12,7 @@ public class Psicologo {
 
 
 
+
     public Psicologo(){
 
     }
@@ -24,12 +25,12 @@ public class Psicologo {
         this.id = id;
     }
 
-    public String getNombre() {
+    public String getNombres() {
         return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombres = nombre;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellido() {
@@ -71,5 +72,4 @@ public class Psicologo {
     public void setFormacion(String formacion) {
         this.formacion = formacion;
     }
-
 }

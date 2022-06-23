@@ -17,48 +17,19 @@
     </ImageView>
 
 
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardinstrucciones"
-        android:layout_margin="20dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="5dp"
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <LinearLayout
-            android:padding="10dp"
-            android:background="@drawable/bg_color_toolbar"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerfamiliar2"
+            android:layout_marginTop="8dp"
+            android:padding="1dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <ImageView
-
-                android:src="@drawable/ninos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </ImageView>
-
-            <TextView
-                android:text="Cumanin"
-                android:textSize="19sp"
-                android:textColor="@color/white"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-
-            <ImageView
-                android:src="@drawable/ic_check"
-
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </ImageView>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+        </androidx.recyclerview.widget.RecyclerView>
+    </LinearLayout>
 
 </LinearLayout>

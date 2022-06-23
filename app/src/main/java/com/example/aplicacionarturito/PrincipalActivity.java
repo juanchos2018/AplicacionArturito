@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.aplicacionarturito.Activity.ConsultaActivity;
+import com.example.aplicacionarturito.Activity.FamiliarActivity;
 import com.example.aplicacionarturito.Activity.SolicitarActivity;
 import com.example.aplicacionarturito.Activity.ViewPagerActivity;
 import com.google.firebase.auth.FirebaseAuth;
@@ -45,7 +46,7 @@ public class PrincipalActivity extends AppCompatActivity implements View.OnClick
                 logOutUser();
                 break;
             case R.id.cadsolicitar:
-                    startActivity(new Intent(this, ViewPagerActivity.class));
+                    startActivity(new Intent(this, FamiliarActivity.class));
                 break;
             case R.id.carconsulta:
                 startActivity(new Intent(this, ConsultaActivity.class));

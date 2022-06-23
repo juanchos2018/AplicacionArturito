@@ -12,12 +12,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.aplicacionarturito.Interface.InterfacePaciente;
 import com.example.aplicacionarturito.Interface.InterfacePsicologo;
 import com.example.aplicacionarturito.Model.Fecha;
 import com.example.aplicacionarturito.Model.Paciente;
 import com.example.aplicacionarturito.Model.Psicologo;
+import com.example.aplicacionarturito.Presenter.PresenterFamiliar;
 import com.example.aplicacionarturito.Presenter.PresenterPsicologo;
 import com.example.aplicacionarturito.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
@@ -34,13 +37,14 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
 
     Button btnverificarhorario;
     Paciente paciente;
-    String psicolog_id,fecha,fecha_id;
+    String psicolog_id,fecha,fecha_id,paciente_id;
 
     CustomCalendar customCalendar;
     PresenterPsicologo presenter;
+    PresenterFamiliar presenterFamiliar;
     private DatabaseReference reference;
-
-
+    private FirebaseAuth mAuth;
+    String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,18 +52,33 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
 
         inputs();
 
+        mAuth = FirebaseAuth.getInstance();
+        user_id = mAuth.getCurrentUser().getUid();
 
-        paciente= (Paciente) getIntent().getSerializableExtra("paciente");
         psicolog_id=getIntent().getStringExtra("id");
+        paciente_id=getIntent().getStringExtra("paciente_id");
         reference= FirebaseDatabase.getInstance().getReference();
         presenter=new PresenterPsicologo(this,reference,this);
-
-        Log.e("modelo", paciente.getNombre());
+        presenterFamiliar=new PresenterFamiliar(this,reference,user_id);
+        //Log.e("modelo", paciente.getNombre());
         Log.e("id", psicolog_id);
+        Log.e("paciente_id", paciente_id);
 
         viewHoras();
+        infoPaciente();
 
 
+    }
+
+    private void infoPaciente() {
+
+        presenterFamiliar.infoPaciente(new InterfacePaciente() {
+            @Override
+            public void onCallback(Paciente value) {
+                paciente=value;
+                Log.e("pacientenomnre",paciente.getNombre());
+            }
+        },  paciente_id);
     }
 
     private void viewHoras() {
@@ -82,8 +101,6 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
 //                startActivity(new Intent(this,HorarioActivity.class));
 //                break;
         }
-
-
     }
 
     @Override
@@ -142,23 +159,20 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
                     }
                     if (existe){
                         fecha_id =fechas2.get(position).getId();
-                        Horas();
+                        Horas(fecha);
                         Toast.makeText(CalendarioActivity.this, fecha_id+" ", Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(CalendarioActivity.this, "no tiene fecha el psicologo", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CalendarioActivity.this, "no tiene hora", Toast.LENGTH_SHORT).show();
                     }
-
-
-
             }
         });
 
     }
 
-    private  void Horas(){
+    private  void Horas(String fecha){
         RecyclerView recyclerView=(RecyclerView)findViewById(R.id.recylcerHoras);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        presenter.cargarRecyclerHoras(recyclerView,psicolog_id,fecha_id);
+        presenter.cargarRecyclerHoras(recyclerView,psicolog_id,fecha_id,paciente_id,fecha,paciente);
     }
     @Override
     public Context getContext() {

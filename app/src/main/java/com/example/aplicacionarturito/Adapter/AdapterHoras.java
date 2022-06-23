@@ -20,7 +20,7 @@ import com.example.aplicacionarturito.R;
 
 import java.util.ArrayList;
 
-public class AdapterHoras extends RecyclerView.Adapter<AdapterHoras.ViewHolderDatos> {
+public class AdapterHoras extends RecyclerView.Adapter<AdapterHoras.ViewHolderDatos> implements View.OnClickListener {
 
 
     ArrayList<Horas> listaItems;
@@ -33,6 +33,7 @@ public class AdapterHoras extends RecyclerView.Adapter<AdapterHoras.ViewHolderDa
     @Override
     public AdapterHoras.ViewHolderDatos onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View vista= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_horas,parent,false);
+        vista.setOnClickListener(this);
         return new ViewHolderDatos(vista);
     }
 
@@ -44,23 +45,37 @@ public class AdapterHoras extends RecyclerView.Adapter<AdapterHoras.ViewHolderDa
             datgolder.tvhoras.setText(listaItems.get(position).getHora_inicio()+" - "+listaItems.get(position).getHora_fin());
             String hora=listaItems.get(position).getHora_inicio()+" - "+listaItems.get(position).getHora_fin();
             datgolder.id_hora=listaItems.get(position).getId();
-            datgolder.btnestado.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent= new Intent(datgolder.btnestado.getContext(), ConfirmarActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("id_hora",datgolder.id_hora);
-                    bundle.putString("horaInfin",hora);
-                    intent.putExtras(bundle);
-                    datgolder.btnestado.getContext().startActivity(intent);
-                }
-            });
+//            datgolder.btnestado.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent= new Intent(datgolder.btnestado.getContext(), ConfirmarActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("id_hora",datgolder.id_hora);
+//                    bundle.putString("horaInfin",hora);
+//                    intent.putExtras(bundle);
+//
+//                }
+//            });
         }
     }
 
     @Override
     public int getItemCount() {
         return listaItems.size();
+    }
+
+    private View.OnClickListener listener;
+
+    public  void setOnClickListener(View.OnClickListener listener)
+    {
+        this.listener=listener;
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (listener!=null){
+            listener.onClick(view);
+        }
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder {

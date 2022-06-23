@@ -10,6 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionArturito">
         <activity
+            android:name=".Activity.PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AtencionesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.AtencionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activity.LecturasActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.FamiliarActivity"
             android:exported="false" />
         <activity
@@ -32,7 +44,7 @@
             android:exported="false" />
         <activity
             android:name=".Activity.CalendarioActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".Activity.PsicologoViewActivity"
             android:exported="false" />

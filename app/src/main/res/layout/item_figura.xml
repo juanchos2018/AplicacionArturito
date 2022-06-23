@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    android:layout_marginRight="2dp"
+    android:layout_marginLeft="2dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_height="wrap_content">
+
+
+
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:id="@+id/imgrectagulo"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_marginRight="10dp"
+            android:src="@drawable/rectaguloapp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+
+
+</LinearLayout>
