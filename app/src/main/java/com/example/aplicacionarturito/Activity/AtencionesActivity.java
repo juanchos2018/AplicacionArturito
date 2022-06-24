@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 
+import com.example.aplicacionarturito.Interface.InterfaceFigura;
 import com.example.aplicacionarturito.Presenter.PresenterAtencion;
 import com.example.aplicacionarturito.Presenter.PresenterLectura;
 import com.example.aplicacionarturito.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AtencionesActivity extends AppCompatActivity {
+public class AtencionesActivity extends AppCompatActivity implements InterfaceFigura {
 
     PresenterAtencion presenter;
     private DatabaseReference reference;
@@ -28,7 +30,7 @@ public class AtencionesActivity extends AppCompatActivity {
 
         paciente_id=getIntent().getStringExtra("paciente_id");
         reference= FirebaseDatabase.getInstance().getReference();
-        presenter= new PresenterAtencion(this,reference,paciente_id);
+        presenter= new PresenterAtencion(this,reference,paciente_id,this);
 
 
 
@@ -48,4 +50,13 @@ public class AtencionesActivity extends AppCompatActivity {
         presenter.cargarRecycler(recyclerView,CategoriaId);
     }
 
+    @Override
+    public void onCallback(String figura) {
+
+    }
+
+    @Override
+    public Context getContext() {
+        return this;
+    }
 }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +13,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.aplicacionarturito.Model.Lectura;
 import com.example.aplicacionarturito.Presenter.PresenterLectura;
 import com.example.aplicacionarturito.R;
 import com.google.firebase.database.DatabaseReference;
@@ -119,8 +121,36 @@ public class LecturaActivity extends AppCompatActivity implements View.OnClickLi
                 String preunga2=etpregunta2.getText().toString();
                 String preunga3=etpregunta3.getText().toString();
 
+                String respuesta1 =tvrespuesta1.getText().toString();
+                String respuesta2 =tvrespuesta2.getText().toString();
+                String respuesta3 =tvrespuesta3.getText().toString();
+
+                Update(respuesta1,respuesta2,respuesta3);
                 break;
 
         }
+    }
+
+    private void Update(String respuesta1, String respuesta2, String respuesta3) {
+        if (TextUtils.isEmpty(respuesta1)){
+            tvrespuesta1.setError("campo necesario");
+        }
+        else if (TextUtils.isEmpty(respuesta2)){
+            tvrespuesta2.setError("campo necesario");
+        }
+        else if (TextUtils.isEmpty(respuesta3)){
+            tvrespuesta3.setError("campo necesario");
+        }else{
+
+            Lectura lectura = new Lectura();
+            lectura.setId(id);
+            lectura.setRespuesta1(respuesta1);
+            lectura.setRespuesta2(respuesta2);
+            lectura.setRespuesta3(respuesta3);
+            lectura.setCategoriaId(CategoriaId);
+            presenter.update(lectura);
+        }
+
+
     }
 }

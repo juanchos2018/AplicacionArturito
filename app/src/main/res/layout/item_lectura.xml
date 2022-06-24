@@ -25,7 +25,6 @@
                 app:siBorderColor="@color/teal_200"/>
         </LinearLayout>
         <LinearLayout
-
             android:padding="5dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
@@ -39,7 +38,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
+            <ImageView
+                android:id="@+id/imgestado"
+                android:layout_gravity="right"
+                android:src="@drawable/ic_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
+            </ImageView>
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>

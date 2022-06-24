@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AplicacionArturito">
         <activity
+            android:name=".Activity.MemoriaActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.PerfilActivity"
             android:exported="false" />
         <activity

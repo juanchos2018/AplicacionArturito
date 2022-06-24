@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -56,6 +57,12 @@ public class AdapterLectura extends RecyclerView.Adapter<AdapterLectura.ViewHold
             datgolder.tvtitulo1.setText(listaItems.get(position).getTitulo());
             datgolder.id=listaItems.get(position).getId();
 
+            if (listaItems.get(position).getEstado().equals("resuelto")){
+                datgolder.imgestado.setImageResource(R.drawable.ic_check);
+            }else{
+                datgolder.imgestado.setImageResource(R.drawable.ic_empty);
+            }
+
         }
     }
 
@@ -68,10 +75,12 @@ public class AdapterLectura extends RecyclerView.Adapter<AdapterLectura.ViewHold
         TextView tvtitulo1;
         Button btneditar;
         String id;
+        ImageView imgestado;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             tvtitulo1=(TextView) itemView.findViewById(R.id.tvtitulo1);
             btneditar=(Button) itemView.findViewById(R.id.btneditar);
+            imgestado=(ImageView) itemView.findViewById(R.id.imgestado);
         }
     }
 }

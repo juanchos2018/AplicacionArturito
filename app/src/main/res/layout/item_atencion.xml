@@ -7,7 +7,8 @@
     app:cardCornerRadius="10dp"
     android:layout_marginBottom="5dp"
     android:layout_marginTop="2dp"
-    android:layout_height="wrap_content">
+    app:cardElevation="5dp"
+    android:layout_height="70dp">
 
 
     <LinearLayout
@@ -15,7 +16,7 @@
         android:layout_height="match_parent"
         android:padding="10dp"
         android:orientation="horizontal"
-        android:background="@color/bgAzul">
+       >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -35,7 +36,7 @@
             android:weightSum="3"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="horizontal">
 
             <TextView
@@ -45,26 +46,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:textSize="16sp"
-                android:textColor="#ffffff"
+
                 android:textStyle="bold">
             </TextView>
 
             <LinearLayout
+                android:gravity="center"
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/btneditarhoras"
-                    android:textSize="12sp"
-                    android:layout_gravity="right"
+                <ImageView
+                    android:id="@+id/imgestado"
+                    android:layout_gravity="right|center"
+                    android:src="@drawable/ic_empty"
                     android:layout_width="wrap_content"
-                    android:text="success"
-                    android:layout_marginRight="10dp"
-                    android:layout_height="40dp"
-                    android:textColor="#ffffff">
-                </Button>
+                    android:layout_height="wrap_content">
+
+                </ImageView>
             </LinearLayout>
 
         </LinearLayout>

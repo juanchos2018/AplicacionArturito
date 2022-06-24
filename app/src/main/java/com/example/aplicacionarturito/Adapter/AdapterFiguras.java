@@ -54,6 +54,11 @@ public class AdapterFiguras extends RecyclerView.Adapter<AdapterFiguras.ViewHold
         if (holder instanceof ViewHolderDatos){
             final ViewHolderDatos datgolder =(ViewHolderDatos)holder;
             datgolder.tvfigura.setText(listaItems.get(position).getFigura());
+            if (listaItems.get(position).getEstado().equals("resuelto")){
+                datgolder.imgestado.setImageResource(R.drawable.ic_check);
+            }else{
+                datgolder.imgestado.setImageResource(R.drawable.ic_empty);
+            }
         }
     }
 
@@ -65,11 +70,12 @@ public class AdapterFiguras extends RecyclerView.Adapter<AdapterFiguras.ViewHold
     public class ViewHolderDatos extends RecyclerView.ViewHolder {
         ImageView imgrectagulo;
         TextView tvfigura;
-
+        ImageView imgestado;
         public ViewHolderDatos(@NonNull View itemView) {
             super(itemView);
             //imgrectagulo=(ImageView) itemView.findViewById(R.id.imgrectagulo);
             tvfigura=(TextView) itemView.findViewById(R.id.tvfigura);
+            imgestado=(ImageView) itemView.findViewById(R.id.imgestado);
         }
     }
 }

@@ -50,6 +50,33 @@
         </androidx.recyclerview.widget.RecyclerView>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
+
+<!--    <LinearLayout-->
+<!--        android:layout_marginTop="10dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content">-->
+<!--        <TextView-->
+<!--            android:id="@+id/tcantidad"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+
+<!--        </TextView>-->
+<!--        <View-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnguardar"-->
+<!--            android:text="Guardar"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+<!--        </Button>-->
+
+<!--    </LinearLayout>-->
+
+
 </LinearLayout>
 
 
