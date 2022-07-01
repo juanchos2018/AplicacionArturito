@@ -79,8 +79,6 @@ public class PerfilFragment extends Fragment implements InterfacePsicologo {
 
         inputs(view);
         infoPsicologo(mArg);
-
-
         return view;
     }
 

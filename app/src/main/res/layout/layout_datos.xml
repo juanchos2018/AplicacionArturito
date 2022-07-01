@@ -50,6 +50,7 @@
                 android:id="@+id/tvcontacto"
                 android:hint="Nombre de contacto"
                 android:padding="10dp"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:background="@drawable/borde_uno"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
@@ -60,6 +61,8 @@
                 android:layout_marginTop="20dp"
                 android:hint="Nro de celular"
                 android:padding="10dp"
+                android:inputType="number"
+                android:maxLength="9"
                 android:background="@drawable/borde_uno"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
@@ -70,6 +73,8 @@
                 android:layout_marginTop="20dp"
                 android:hint="Dni"
                 android:padding="10dp"
+                android:inputType="number"
+                android:maxLength="8"
                 android:background="@drawable/borde_uno"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">

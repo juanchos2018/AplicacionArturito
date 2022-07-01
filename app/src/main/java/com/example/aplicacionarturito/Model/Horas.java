@@ -8,6 +8,7 @@ public class Horas {
     private String  hora_inicio;
     private String  hora_fin;
     private String  estado;
+    private String  turno;
 
     public  Horas(){
 
@@ -59,5 +60,14 @@ public class Horas {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+
+    public String getTurno() {
+        return turno;
+    }
+
+    public void setTurno(String turno) {
+        this.turno = turno;
     }
 }

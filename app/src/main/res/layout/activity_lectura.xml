@@ -108,6 +108,7 @@
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
+
                 <TextView
                     android:id="@+id/pregunta1"
                     android:hint="pregunta 1"
@@ -115,14 +116,14 @@
                     android:layout_height="wrap_content">
                 </TextView>
 
-            <EditText
-                android:hint="escriba respuesta"
-                android:id="@+id/tvrespuesta1"
-                android:layout_marginBottom="4dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                <EditText
+                    android:hint="escriba respuesta"
+                    android:id="@+id/tvrespuesta1"
+                    android:layout_marginBottom="4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-            </EditText>
+                </EditText>
                 <TextView
                     android:id="@+id/pregunta2"
                     android:hint="pregunta 2"

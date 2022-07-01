@@ -27,7 +27,6 @@ public class AdapterPsicologos  extends RecyclerView.Adapter<AdapterPsicologos.V
     String paciente_id;
     public AdapterPsicologos(ArrayList<Psicologo> listaPsicologos, String paciente_id) {
         this.listaPsicologos = listaPsicologos;
-
         this.paciente_id=paciente_id;
     }
 
@@ -84,7 +83,6 @@ public class AdapterPsicologos  extends RecyclerView.Adapter<AdapterPsicologos.V
                     Bundle bundle = new Bundle();
                     bundle.putString("id", datgolder.id);
                     bundle.putString("paciente_id", paciente_id);
-
                     intent.putExtras(bundle);
                     datgolder.btnconsultar.getContext().startActivity(intent);
                 }

@@ -55,7 +55,6 @@ public class LecturaActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-
     private void viewLectura(String id) {
         presenter.ViewLectura(value -> {
             ettitulo.setText(value.getTitulo());
@@ -63,6 +62,10 @@ public class LecturaActivity extends AppCompatActivity implements View.OnClickLi
             etpregunta1.setText(value.getPregunta1());
             etpregunta2.setText(value.getPregunta2());
             etpregunta3.setText(value.getPregunta3());
+
+            tvrespuesta1.setText(value.getRespuesta1());
+            tvrespuesta2.setText(value.getRespuesta2());
+            tvrespuesta3.setText(value.getRespuesta3());
 
         }, CategoriaId,id);
     }
@@ -94,7 +97,6 @@ public class LecturaActivity extends AppCompatActivity implements View.OnClickLi
         btnguardar.setOnClickListener(this);
         search.setOnClickListener(this);
         offer.setOnClickListener(this);
-
 
     }
 

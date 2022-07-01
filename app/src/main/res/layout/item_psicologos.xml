@@ -15,7 +15,7 @@
         android:background="@drawable/bg_color_toolbar"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:padding="10dp"
+        android:padding="5dp"
         android:layout_height="match_parent">
 
         <LinearLayout
@@ -42,6 +42,7 @@
             <TextView
                 android:id="@+id/nombrepsicologo"
                 android:text="Psicologo Nina Maria "
+                android:textColor="@color/colorBackground"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
             </TextView>
@@ -54,18 +55,18 @@
                 <Button
                     android:id="@+id/btnver"
                     android:text="Ver"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="40dp">
                 </Button>
                 <Button
                     android:id="@+id/btnconsultar"
                     android:layout_gravity="right"
                     android:text="Consultar"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:layout_marginLeft="11dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
+                    android:layout_height="40dp">
                 </Button>
             </LinearLayout>
 

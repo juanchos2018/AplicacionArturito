@@ -47,6 +47,7 @@
             <EditText
                 android:id="@+id/tvnombrepaciente"
                 android:hint="Nombre"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:padding="10dp"
                 android:background="@drawable/borde_uno"
                 android:layout_width="match_parent"
@@ -57,6 +58,7 @@
                 android:id="@+id/tvapellidopaciente"
                 android:layout_marginTop="20dp"
                 android:hint="Apellidos"
+                android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ "
                 android:padding="10dp"
                 android:background="@drawable/borde_uno"
                 android:layout_width="match_parent"
@@ -68,6 +70,7 @@
                 android:layout_marginTop="20dp"
                 android:hint="Edad"
                 android:padding="10dp"
+                android:enabled="false"
                 android:background="@drawable/borde_uno"
                 android:layout_width="match_parent"
                 android:layout_height="40dp">
@@ -83,6 +86,7 @@
                     android:layout_marginTop="20dp"
                     android:hint="fecha naciemiento"
                     android:padding="10dp"
+                    android:enabled="false"
                     android:background="@drawable/borde_uno"
                     android:layout_width="0dp"
                     android:layout_weight="2"

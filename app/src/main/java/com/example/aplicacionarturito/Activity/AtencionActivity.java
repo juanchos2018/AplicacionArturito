@@ -150,7 +150,6 @@ public class AtencionActivity extends AppCompatActivity  implements View.OnClick
                 messgaeSucces();
             }
         }
-
     }
 
     private void messgaeSucces() {
@@ -162,7 +161,7 @@ public class AtencionActivity extends AppCompatActivity  implements View.OnClick
         atencion.setCategoriaId(CategoriaId);
         atencion.setCantidafiguras(cantidafiguras+"");
         presenter.DialogOk("Se completo esta tarea",atencion);
-        finish();
+        //finish();
         //Toast.makeText(this, "Compleado todos los fuguras", Toast.LENGTH_SHORT).show();
     }
 

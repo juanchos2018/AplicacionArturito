@@ -13,6 +13,7 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +23,12 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.aplicacionarturito.Interface.InterfaceDialog;
 import com.example.aplicacionarturito.Model.Paciente;
 import com.example.aplicacionarturito.Presenter.PresenterFamiliar;
 import com.example.aplicacionarturito.Presenter.PresenterHorario;
@@ -37,7 +40,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.Calendar;
 import java.util.Date;
 
-public class ViewPagerActivity extends AppCompatActivity {
+public class ViewPagerActivity extends AppCompatActivity implements InterfaceDialog {
 
     private ViewPager viewPager;
     private ViewPagerAdapter viewPagerAdapter;
@@ -57,6 +60,7 @@ public class ViewPagerActivity extends AppCompatActivity {
     private static final String BARRA = "-";
     Date tgl_daftar_date;
 
+    int position_page=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +70,7 @@ public class ViewPagerActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
         reference= FirebaseDatabase.getInstance().getReference();
-        presenter= new PresenterFamiliar(this,reference,user_id);
+        presenter= new PresenterFamiliar(this,reference,user_id,this);
 
         viewPager = findViewById(R.id.view_pager);
         dotsLayout = findViewById(R.id.layoutDots);
@@ -87,9 +91,78 @@ public class ViewPagerActivity extends AppCompatActivity {
     }
 
     public  void btnNextClick(View v){
-        int current = getItem(1);
-        if (current < layouts.length){
-            viewPager.setCurrentItem(current);
+        String tipo = null;
+        if (position_page==0){
+
+            EditText tvttexto=(EditText) findViewById(R.id.tvttexto);
+            RadioGroup radioGrupoTipoCaso = findViewById(R.id.radioGrupoTipoCaso);
+            int checkgfatiga = radioGrupoTipoCaso.getCheckedRadioButtonId();
+            if (checkgfatiga==-1 ){
+                tipo="";
+            }
+            else {
+                if (  checkgfatiga == R.id.rbdfamilia  ){
+                    tipo="Propio";
+                }
+                if (checkgfatiga == R.id.rbdtio){
+                    tipo="Familiar";
+                }
+                if (checkgfatiga == R.id.rbdapoderado){
+                    tipo="Conocido";
+                }
+                if (checkgfatiga == R.id.rbdotro){
+                    tipo="Conocido";
+                }
+            }
+           // String text=tvttexto.getText().toString();
+            if (TextUtils.isEmpty(tipo)){
+                //tvttexto.setError("campo necesario");
+                Toast.makeText(this, "Seleccione una opcion ", Toast.LENGTH_SHORT).show();
+            }else{
+                int current = getItem(1);
+                position_page=current;
+                viewPager.setCurrentItem(current);
+            }
+        }
+        else if (position_page==1){
+            EditText tvcontacto=findViewById(R.id.tvcontacto);
+            EditText tvcelular=findViewById(R.id.tvcelular);
+            EditText tvdni=findViewById(R.id.tvdni);
+            String dni =tvdni.getText().toString();
+            String con =tvcontacto.getText().toString();
+            String cel =tvcelular.getText().toString();
+            if (TextUtils.isEmpty(con)){
+                tvcontacto.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(cel)){
+                tvcelular.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(dni)){
+                tvdni.setError("campo necesario");
+            }
+            else{
+                int current = getItem(1);
+                position_page=current;
+                viewPager.setCurrentItem(current);
+            }
+        }
+        else if (position_page==2){
+            EditText tvnombrepaciente=findViewById(R.id.tvnombrepaciente);
+            EditText tvapellidopaciente=findViewById(R.id.tvapellidopaciente);
+            EditText tvedadpacinte=findViewById(R.id.tvedadpacinte);
+            EditText tvfechapaciente=findViewById(R.id.tvfechapaciente);
+            EditText tvlnacimientopaciente=findViewById(R.id.tvlnacimientopaciente);
+            EditText tvgradopaciente=findViewById(R.id.tvgradopaciente);
+
+            String campo1=tvnombrepaciente.getText().toString();
+            String campo2=tvapellidopaciente.getText().toString();
+            String campo3=tvedadpacinte.getText().toString();
+            String campo4=tvfechapaciente.getText().toString();
+            String campo5=tvlnacimientopaciente.getText().toString();
+            String campo6=tvgradopaciente.getText().toString();
+
+
+
             ImageButton imgfecha = findViewById(R.id.imgfecha);
             imgfecha.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,17 +184,51 @@ public class ViewPagerActivity extends AppCompatActivity {
                             String []arracurer=curren_date.split("-");
                             int anioctual =Integer.parseInt(arracurer[0]);
                             int anioelegico=year;
+                            if (anioctual>6){
+                                Toast.makeText(ViewPagerActivity.this, "la edad no califica para este test", Toast.LENGTH_SHORT).show();
+                            }
                             int edad =anioctual-anioelegico;
                             EditText tvedadpacinte=findViewById(R.id.tvedadpacinte);
                             tvedadpacinte.setText(edad+"");
-                           // store(fecha,tgl_daftar_date.toString(),id);
+                            // store(fecha,tgl_daftar_date.toString(),id);
                         }
                     },anio, mes, dia);
                     recogerFecha.show();
                 }
             });
-        } else {
-            launchHomeScreen();
+
+
+            if (TextUtils.isEmpty(campo1)){
+                tvnombrepaciente.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(campo2)){
+                tvnombrepaciente.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(campo3)){
+                tvedadpacinte.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(campo4)){
+                tvfechapaciente.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(campo5)){
+                tvlnacimientopaciente.setError("campo necesario");
+            }
+            else if (TextUtils.isEmpty(campo6)){
+                tvgradopaciente.setError("campo necesario");
+            }else{
+                int current = getItem(1);
+                position_page=current;
+                viewPager.setCurrentItem(current);
+            }
+
+        }else if (position_page==3){
+            EditText tvedadpacinte=findViewById(R.id.tvedadpacinte);
+            int edad =Integer.parseInt(tvedadpacinte.getText().toString());
+            if (edad>6){
+                Toast.makeText(this, "la edad sobrepasa ", Toast.LENGTH_SHORT).show();
+            }else{
+                launchHomeScreen(tipo);
+            }
         }
     }
 
@@ -167,11 +274,9 @@ public class ViewPagerActivity extends AppCompatActivity {
 
         if (dots.length > 0)
             dots[currentPage].setTextColor(getResources().getColor(R.color.dot_active));
-    }
+       }
 
-
-
-    private void launchHomeScreen() {
+    private void launchHomeScreen(String tipo) {
         Paciente paciente = new Paciente();
 
         EditText tvnombrepaciente=findViewById(R.id.tvnombrepaciente);
@@ -196,7 +301,6 @@ public class ViewPagerActivity extends AppCompatActivity {
         String celuar=tvcelular.getText().toString();
         String dni=tvdni.getText().toString();
 
-
         paciente.setNombre(nombrePaciente);
         paciente.setApellidos(apellidopaciente);
         paciente.setEdad(edadpaciente);
@@ -207,22 +311,21 @@ public class ViewPagerActivity extends AppCompatActivity {
         paciente.setContacto(contacto);
         paciente.setCelular(celuar);
         paciente.setDni(dni);
-
+        paciente.setTipo(tipo);
         btnNext.setText(getString(R.string.next));
-
-        SharedPreferences sharedPreferences = getSharedPreferences("PREFS", MODE_PRIVATE);
-        SharedPreferences.Editor editor;
-        editor = sharedPreferences.edit();
-        editor.putInt("INTRO", 1);
-        editor.apply();
-
         presenter.save(paciente);
-        Intent intent = new Intent(this, PsicologosActivity.class);
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("paciente",paciente);
-//        intent.putExtras(bundle);
         finish();
         //startActivity(intent);
+    }
+
+    @Override
+    public void oncallbackPaciente(String paciente_id) {
+
+    }
+
+    @Override
+    public Context getContext2() {
+        return this;
     }
 
 

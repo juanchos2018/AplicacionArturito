@@ -9,9 +9,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.aplicacionarturito.Interface.InterfaceDialog;
 import com.example.aplicacionarturito.Interface.InterfacePaciente;
 import com.example.aplicacionarturito.Interface.InterfacePsicologo;
 import com.example.aplicacionarturito.Model.Fecha;
@@ -29,11 +33,12 @@ import org.naishadhparmar.zcustomcalendar.CustomCalendar;
 import org.naishadhparmar.zcustomcalendar.OnDateSelectedListener;
 import org.naishadhparmar.zcustomcalendar.Property;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
-public class CalendarioActivity extends AppCompatActivity  implements View.OnClickListener,InterfacePsicologo {
+public class CalendarioActivity extends AppCompatActivity  implements View.OnClickListener,InterfacePsicologo, InterfaceDialog {
 
     Button btnverificarhorario;
     Paciente paciente;
@@ -45,6 +50,11 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
     private DatabaseReference reference;
     private FirebaseAuth mAuth;
     String user_id;
+
+    ArrayList<String> listaDia;
+    ArrayAdapter<String> adapterDias;
+    Spinner spinnerDias;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,15 +69,10 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
         paciente_id=getIntent().getStringExtra("paciente_id");
         reference= FirebaseDatabase.getInstance().getReference();
         presenter=new PresenterPsicologo(this,reference,this);
-        presenterFamiliar=new PresenterFamiliar(this,reference,user_id);
-        //Log.e("modelo", paciente.getNombre());
-        Log.e("id", psicolog_id);
-        Log.e("paciente_id", paciente_id);
+        presenterFamiliar=new PresenterFamiliar(this,reference,user_id,this);
 
         viewHoras();
         infoPaciente();
-
-
     }
 
     private void infoPaciente() {
@@ -87,9 +92,35 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
 
     private void inputs() {
 
-       // btnverificarhorario=(Button)findViewById(R.id.btnverificarhorario);
         customCalendar=(CustomCalendar)findViewById(R.id.calendar);
+        spinnerDias=(Spinner)findViewById(R.id.spinnerDias);
         //btnverificarhorario.setOnClickListener(this);
+
+        listaDia=new ArrayList<>();
+        listaDia.add("Seleccione");
+        listaDia.add("mañana");
+        listaDia.add("tarde");
+
+        adapterDias= new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,listaDia);
+        spinnerDias.setAdapter(adapterDias);
+
+        spinnerDias.setOnItemSelectedListener(
+                new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> spn,
+                                               android.view.View v,
+                                               int posicion,
+                                               long id) {
+                        int  pos=spinnerDias.getSelectedItemPosition();
+                        String turno =listaDia.get(pos);
+                        if (!turno.equals("Seleccione")){
+                            presenter.filtrar(turno);
+                        }
+                       // Toast.makeText(CalendarioActivity.this,  turno, Toast.LENGTH_SHORT).show();
+                    }
+                    public void onNothingSelected(AdapterView<?> spn) {
+                    }
+                });
+
 
     }
 
@@ -160,8 +191,9 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
                     if (existe){
                         fecha_id =fechas2.get(position).getId();
                         Horas(fecha);
-                        Toast.makeText(CalendarioActivity.this, fecha_id+" ", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(CalendarioActivity.this, fecha_id+" ", Toast.LENGTH_SHORT).show();
                     }else{
+                        Horas(fecha);
                         Toast.makeText(CalendarioActivity.this, "no tiene hora", Toast.LENGTH_SHORT).show();
                     }
             }
@@ -177,5 +209,15 @@ public class CalendarioActivity extends AppCompatActivity  implements View.OnCli
     @Override
     public Context getContext() {
         return this;
+    }
+
+    @Override
+    public void oncallbackPaciente(String paciente_id) {
+
+    }
+
+    @Override
+    public Context getContext2() {
+        return null;
     }
 }

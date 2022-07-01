@@ -15,10 +15,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aplicacionarturito.Activity.AtencionesActivity;
 import com.example.aplicacionarturito.Activity.LecturasActivity;
+import com.example.aplicacionarturito.Activity.MemoriasActivity;
 import com.example.aplicacionarturito.Adapter.AdapterCategorias;
 import com.example.aplicacionarturito.Adapter.AdapterFamiliar;
 import com.example.aplicacionarturito.Adapter.AdapterFamiliar2;
 import com.example.aplicacionarturito.Adapter.AdapterHoras;
+import com.example.aplicacionarturito.Fragment.BottonSheetFragment;
+import com.example.aplicacionarturito.Interface.InterfaceBotton;
+import com.example.aplicacionarturito.Interface.InterfaceDialog;
 import com.example.aplicacionarturito.Interface.InterfacePaciente;
 import com.example.aplicacionarturito.Model.Horas;
 import com.example.aplicacionarturito.Model.Paciente;
@@ -39,12 +43,15 @@ public class PresenterFamiliar {
     private DatabaseReference databaseReference;
     private AdapterFamiliar adapter;
     private AdapterFamiliar2 adapter2;
+    private InterfaceDialog interfaceDialog;
     ProgressDialog progressDialog;
     String user_id;
-    public PresenterFamiliar(Context mContext, DatabaseReference databaseReference,String user_id) {
+
+    public PresenterFamiliar(Context mContext, DatabaseReference databaseReference,String user_id,InterfaceDialog interfaceDialog) {
         this.mContext = mContext;
         this.databaseReference = databaseReference;
         this.user_id=user_id;
+        this.interfaceDialog=interfaceDialog;
     }
 
     public   void save(Paciente paciente){
@@ -90,22 +97,7 @@ public class PresenterFamiliar {
         });
     }
 
-//    public  Paciente(InterfacePaciente interfacePaciente, String paciente_id) {
-//
-//        databaseReference.child("Paciente").child(paciente_id).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull @org.jetbrains.annotations.NotNull DataSnapshot snapshot) {
-//                if (snapshot.exists()){
-//                    Paciente userModel = snapshot.getValue(Paciente.class);
-//                    interfacePaciente.onCallback(userModel);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull @org.jetbrains.annotations.NotNull DatabaseError error) {
-//                Toast.makeText(mContext, "Err "+error.getMessage(), Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//    }
+
 //
     private  void savePaciente(Paciente paciente,String id){
 //        progressDialog= new ProgressDialog(mContext);
@@ -137,7 +129,16 @@ public class PresenterFamiliar {
                     Paciente model=item.getValue(Paciente.class);
                     lista.add(model);
                 }
-                adapter= new AdapterFamiliar(lista,mContext);
+                adapter= new AdapterFamiliar(lista, mContext, new InterfaceBotton() {
+                    @Override
+                    public void oncallbackPaciente(String paciente_id) {
+
+                        interfaceDialog.oncallbackPaciente(paciente_id);
+
+                        //BottonSheetFragment bottomSheetDialog = BottonSheetFragment.newInstance();
+                        //bottomSheetDialog.show( mContext.getApplicationInfo().getSupportFragmentManager(), "Bottom Sheet Dialog Fragment");
+                    }
+                });
                 recyclerView.setAdapter(adapter);
             }
             @Override
@@ -146,6 +147,8 @@ public class PresenterFamiliar {
             }
         });
     }
+
+
     public  void cargarRecycler2(RecyclerView recyclerView){
         databaseReference.child("UsuarioFamiliar").child(user_id).addValueEventListener(new ValueEventListener() {
             ArrayList<Paciente> lista;
@@ -189,6 +192,13 @@ public class PresenterFamiliar {
                     mContext.startActivity(intent);
                 }else if (opciones[i].equals("ATENCION")) {
                     Intent intent = new Intent(mContext, AtencionesActivity.class);
+                    Bundle bundle =new Bundle();
+                    bundle.putString("paciente_id",paciente_id);
+                    intent.putExtras(bundle);
+                    mContext.startActivity(intent);
+                }
+                else if (opciones[i].equals("MEMORIA")) {
+                    Intent intent = new Intent(mContext, MemoriasActivity.class);
                     Bundle bundle =new Bundle();
                     bundle.putString("paciente_id",paciente_id);
                     intent.putExtras(bundle);

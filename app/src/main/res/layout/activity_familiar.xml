@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_color2"
     tools:context=".Activity.FamiliarActivity">
 
 
@@ -49,7 +50,7 @@
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
-            android:padding="5dp"
+            android:padding="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <androidx.recyclerview.widget.RecyclerView

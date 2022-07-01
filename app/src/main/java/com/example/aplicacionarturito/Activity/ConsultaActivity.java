@@ -5,10 +5,12 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.aplicacionarturito.Interface.InterfaceDialog;
 import com.example.aplicacionarturito.Presenter.PresenterFamiliar;
 import com.example.aplicacionarturito.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,7 +18,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class ConsultaActivity extends AppCompatActivity  implements View.OnClickListener {
+public class ConsultaActivity extends AppCompatActivity  implements View.OnClickListener, InterfaceDialog {
 
 
     CardView cardinstrucciones;
@@ -35,7 +37,7 @@ public class ConsultaActivity extends AppCompatActivity  implements View.OnClick
         reference= FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         user_id = mAuth.getCurrentUser().getUid();
-        presenter= new PresenterFamiliar(this,reference,user_id);
+        presenter= new PresenterFamiliar(this,reference,user_id,this);
 
         inputs();
 
@@ -67,5 +69,15 @@ public class ConsultaActivity extends AppCompatActivity  implements View.OnClick
         switch (view.getId()){
 
         }
+    }
+
+    @Override
+    public void oncallbackPaciente(String paciente_id) {
+
+    }
+
+    @Override
+    public Context getContext2() {
+        return this;
     }
 }

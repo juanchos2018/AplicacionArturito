@@ -49,7 +49,7 @@ public class PresenterPsicologo {
     android.app.AlertDialog.Builder builder1;
     AlertDialog alert1;
     InterfacePsicologo interfacePsicologo2;
-
+    ArrayList<Horas> lista;
     public PresenterPsicologo(Context mContext, DatabaseReference databaseReference,InterfacePsicologo interfacePsicologo2) {
         this.mContext = mContext;
         this.databaseReference = databaseReference;
@@ -68,7 +68,6 @@ public class PresenterPsicologo {
                 }
                 adapter= new AdapterPsicologos(lista,paciente_id);
                 recyclerView.setAdapter(adapter);
-
             }
             @Override
             public void onCancelled(@NonNull @NotNull DatabaseError error) {
@@ -79,7 +78,7 @@ public class PresenterPsicologo {
 
     public  void cargarRecyclerHoras(RecyclerView recyclerView, String psicologo_id,String fecha_id,String paciente_id,String fecha,Paciente paciente){
         databaseReference.child("Fechas").child(psicologo_id).child(fecha_id).child("Horas").addValueEventListener(new ValueEventListener() {
-            ArrayList<Horas> lista;
+
             @Override
             public void onDataChange(@NonNull @NotNull DataSnapshot snapshot) {
                 lista=new ArrayList<>();
@@ -95,7 +94,8 @@ public class PresenterPsicologo {
                         String nombres =paciente.getNombre()+" "+paciente.getApellidos();
                         String photo =paciente.getPhoto();
                         String horas =lista.get(recyclerView.getChildAdapterPosition(view)).getHora_inicio();
-                        DialogoAddCita("Quiere tener la consulta alas 18:00  pm hasta las"+ horas,paciente_id,psicologo_id,fecha,nombres,photo);
+                        String horaifin =lista.get(recyclerView.getChildAdapterPosition(view)).getHora_fin();
+                        DialogoAddCita("Quiere tener la consulta alas "+horas+" hasta las"+ horaifin,paciente_id,psicologo_id,fecha,nombres,photo);
                     }
                 });
             }
@@ -105,7 +105,15 @@ public class PresenterPsicologo {
             }
         });
     }
-
+    public void filtrar(String texto) {
+        ArrayList<Horas> filtradatos= new ArrayList<>();
+        for(Horas item :lista){
+            if (item.getTurno().contains(texto)){
+                filtradatos.add(item);
+            }
+            adapter2.filtrar(filtradatos);
+        }
+    }
 
     public void info(String user_id) {
 

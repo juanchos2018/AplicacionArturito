@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aplicacionarturito.Activity.PsicologosActivity;
+import com.example.aplicacionarturito.Interface.InterfaceBotton;
 import com.example.aplicacionarturito.Model.Categoria;
 import com.example.aplicacionarturito.Model.Paciente;
 import com.example.aplicacionarturito.R;
@@ -25,9 +26,12 @@ public class AdapterFamiliar extends RecyclerView.Adapter<AdapterFamiliar.ViewHo
     ArrayList<Paciente> listaItems;
     Context context;
 
-    public AdapterFamiliar(ArrayList<Paciente> listaItems,Context context) {
+    private InterfaceBotton interfaceBotton;
+
+    public AdapterFamiliar(ArrayList<Paciente> listaItems,Context context,InterfaceBotton interfaceBotton) {
         this.listaItems = listaItems;
         this.context=context;
+        this.interfaceBotton=interfaceBotton;
     }
 
     @NonNull
@@ -48,11 +52,13 @@ public class AdapterFamiliar extends RecyclerView.Adapter<AdapterFamiliar.ViewHo
             datgolder.btncita.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(context, PsicologosActivity.class);
-                    Bundle bundle = new Bundle();
-                    bundle.putString("id", datgolder.id);
-                    intent.putExtras(bundle);
-                    context.startActivity(intent);
+
+                    interfaceBotton.oncallbackPaciente(datgolder.id);
+//                    Intent intent = new Intent(context, PsicologosActivity.class);
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("id", datgolder.id);
+//                    intent.putExtras(bundle);
+//                    context.startActivity(intent);
                 }
             });
         }

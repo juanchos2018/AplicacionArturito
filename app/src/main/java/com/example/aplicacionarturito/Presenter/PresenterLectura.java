@@ -98,7 +98,6 @@ public class PresenterLectura {
         });
     }
 
-
     public   void  update(Lectura lectura){
         progressDialog= new ProgressDialog(mContext);
         progressDialog.setMessage("Cargando..");
@@ -118,7 +117,7 @@ public class PresenterLectura {
             public void onComplete(@NonNull @NotNull Task<Void> task) {
                 if (task.isSuccessful()){
                     progressDialog.dismiss();
-                    DialogOk("Guardo con Exito");
+                    DialogOk("Guardado con Exito");
                 }
             }
         }).addOnFailureListener(new OnFailureListener() {

@@ -59,6 +59,11 @@ public class AdapterHoras extends RecyclerView.Adapter<AdapterHoras.ViewHolderDa
         }
     }
 
+    public  void filtrar(ArrayList<Horas> filtro){
+        this.listaItems=filtro;
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return listaItems.size();

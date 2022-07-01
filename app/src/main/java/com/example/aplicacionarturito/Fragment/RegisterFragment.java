@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import com.example.aplicacionarturito.Presenter.PresenterLogin;
 import com.example.aplicacionarturito.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.regex.Pattern;
 
 
 public class RegisterFragment extends Fragment implements View.OnClickListener {
@@ -37,8 +40,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
     public RegisterFragment() {
 
     }
-
-
 
     public static RegisterFragment newInstance(String param1, String param2) {
         RegisterFragment fragment = new RegisterFragment();
@@ -64,8 +65,6 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
 
-
-
         tvnonbre=(EditText) view.findViewById(R.id.tvnonbre);
         tvapellido=(EditText) view.findViewById(R.id.tvapellido);
         tvcorreo=(EditText) view.findViewById(R.id.tvcorreo);
@@ -89,20 +88,44 @@ public class RegisterFragment extends Fragment implements View.OnClickListener {
                 String correo=tvcorreo.getText().toString();
                 String clave=tvclave.getText().toString();
                 String clave2=tvclave2.getText().toString();
-
-                if (clave.equals(clave2))
-                {   //regitstrear usuarui
-                    presenterLogin.registerUser(nombre,apellido,correo,clave);
-                   // presenterLogin.Register();
-                }else{
-                    Toast.makeText(getContext(), "las claves no son iguales", Toast.LENGTH_SHORT).show();
+                if (TextUtils.isEmpty(nombre)){
+                    tvnonbre.setError("campo necesario");
                 }
+                else if (TextUtils.isEmpty(apellido)){
+                    tvapellido.setError("campo necesario");
+                }
+                else if (TextUtils.isEmpty(correo)){
+                    tvcorreo.setError("campo necesario");
+                }
+                else if (!isValidEmailId(correo.trim())){
+                    tvcorreo.setError("correo invalido");
+                }
+                else if (TextUtils.isEmpty(clave)){
+                    tvclave.setError("correo invalido");
+                }else{
+                    if (clave.equals(clave2))
+                    {   //regitstrear usuarui
+                        presenterLogin.registerUser(nombre,apellido,correo,clave);
+                        // presenterLogin.Register();
+                    }else{
+                        Toast.makeText(getContext(), "las claves no son iguales", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
 
                 break;
 
         }
     }
+    private boolean isValidEmailId(String email){
 
+        return Pattern.compile("^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                + "((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                + "([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                + "[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                + "([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$").matcher(email).matches();
+    }
 
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
